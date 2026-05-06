@@ -15,7 +15,7 @@ namespace Kolokvijum1
         public int Priority { get; set; }
 
         // Konstruktor klase 
-        public Job(JOBTYPE type = JOBTYPE.Job1, string payload = "", int priority = 0)
+        public Job(JOBTYPE type = JOBTYPE.PRIME, string payload = "", int priority = 0)
         {
             Type = type;
             Payload = payload;

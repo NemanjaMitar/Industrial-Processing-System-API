@@ -8,9 +8,8 @@ namespace Kolokvijum1
 {
     public enum JOBTYPE
     {
-        Job1,
-        Job2,
-        Job3
+        PRIME,
+        IO,
     }
     public class Helpers
     {
@@ -18,14 +17,24 @@ namespace Kolokvijum1
         {
             switch (jobType)
             {
-                case JOBTYPE.Job1:
-                    return "Job1";
-                case JOBTYPE.Job2:
-                    return "Job2";
-                case JOBTYPE.Job3:
-                    return "Job3";
+                case JOBTYPE.PRIME:
+                    return "PRIME";
+                case JOBTYPE.IO:
+                    return "IO";
                 default:
-                    return "Unknown";
+                   throw new Exception("Invalid job type");
+            }
+        }
+        public static JOBTYPE ConvertStringToJobType(string jobType)
+        {
+            switch (jobType)
+            {
+                case "Prime":
+                    return JOBTYPE.PRIME;
+                case "IO":
+                    return JOBTYPE.IO;
+                default:
+                    throw new Exception("Invalid job type string");
             }
         }
     }

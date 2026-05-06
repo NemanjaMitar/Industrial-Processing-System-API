@@ -8,16 +8,23 @@ namespace Kolokvijum1
 {
     public class JobHandle
     {
+        private readonly TaskCompletionSource<int> _tcs;
         // Polja klase 
         public Guid Id { get; set; }
-        public Task<int> Result { get; set; }
+        public Task<int> Result => _tcs.Task;
 
         // Konstruktor klase
-        public JobHandle(Task<int> result)
+        public JobHandle()
         {
             Id = Guid.NewGuid();
-            Result = result;
+            _tcs = new TaskCompletionSource<int>(TaskCreationOptions.RunContinuationsAsynchronously);
         }
+
+        public bool Complete(int result )
+        {
+            return _tcs.TrySetResult(result);
+        }
+
 
         //Ispis
         public override string ToString()
