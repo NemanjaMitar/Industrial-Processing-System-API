@@ -1,0 +1,106 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Nemanja\\Documents\\Programs\\Visual Studio\\v1\\Kolokvijum1.Tests\\Kolokvijum1.Tests.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Nemanja\\Documents\\Programs\\Visual Studio\\v1\\Kolokvijum1.Tests\\Kolokvijum1.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nemanja\\Documents\\Programs\\Visual Studio\\v1\\Kolokvijum1.Tests\\Kolokvijum1.Tests.csproj",
+        "projectName": "Kolokvijum1.Tests",
+        "projectPath": "C:\\Users\\Nemanja\\Documents\\Programs\\Visual Studio\\v1\\Kolokvijum1.Tests\\Kolokvijum1.Tests.csproj",
+        "packagesPath": "C:\\Users\\Nemanja\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nemanja\\Documents\\Programs\\Visual Studio\\v1\\Kolokvijum1.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Nemanja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {
+              "C:\\Users\\Nemanja\\Documents\\Programs\\Visual Studio\\v1\\Kolokvijum1\\Kolokvijum1.csproj": {
+                "projectPath": "C:\\Users\\Nemanja\\Documents\\Programs\\Visual Studio\\v1\\Kolokvijum1\\Kolokvijum1.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.200"
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.14.1, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.9.3, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Nemanja\\Documents\\Programs\\Visual Studio\\v1\\Kolokvijum1\\Kolokvijum1.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nemanja\\Documents\\Programs\\Visual Studio\\v1\\Kolokvijum1\\Kolokvijum1.csproj",
+        "projectName": "Kolokvijum1",
+        "projectPath": "C:\\Users\\Nemanja\\Documents\\Programs\\Visual Studio\\v1\\Kolokvijum1\\Kolokvijum1.csproj",
+        "packagesPath": "C:\\Users\\Nemanja\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "UsingMicrosoftNETSdk": false,
+        "configFilePaths": [
+          "C:\\Users\\Nemanja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low"
+        },
+        "packagesConfigPath": "C:\\Users\\Nemanja\\Documents\\Programs\\Visual Studio\\v1\\Kolokvijum1\\packages.config"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report generatedAt="2026-05-06 22:17:37" totalRecords="3">
+  <CompletedByType>
+    <Item type="PRIME" count="1" />
+    <Item type="IO" count="1" />
+  </CompletedByType>
+  <AverageDurationByType>
+    <Item type="PRIME" avgMs="100,00" />
+    <Item type="IO" avgMs="200,00" />
+  </AverageDurationByType>
+  <FailedByType>
+    <Item type="IO" count="1" />
+  </FailedByType>
+</Report>
