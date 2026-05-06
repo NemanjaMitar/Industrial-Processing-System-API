@@ -5,23 +5,19 @@ using System.Xml.Linq;
 
 namespace Kolokvijum1
 {
-    // EventSystem se pretplacuje na ProcessingSystem dogadjaje (JobCompleted, JobFailed)
-    // koristeci LAMBDA izraze i asinhrono upisuje u XML log fajl.
-    //
-    // Format jednog log unosa:
-    //   <Entry timestamp="..." status="..." jobId="..." result="..." />
-    //
+    // EventSystem se pretplacuje na dogadjaje (JobCompleted, JobFailed)
+    // Ispisuje u log.txt 
     // Asinhrono pisanje: koristimo Task.Run + lock, pa pozivajuca nit nije blokirana.
     public class EventSystem
     {
         private readonly string _logFile;
         private readonly object _fileLock = new object();
 
-        public EventSystem(ProcessingSystem processingSystem, string logFile = "log.xml")
+        public EventSystem(ProcessingSystem processingSystem, string logFile = "log.txt")
         {
             _logFile = logFile;
 
-            // Pretplata na dogadjaje koristeci LAMBDA izraze (zahtev iz teksta zadatka)
+            // Pretplata na dogadjaje koristeci lamda izraze
             processingSystem.JobCompleted += (job, result) =>
             {
                 _ = LogAsync(job.Id, "COMPLETED", result.ToString());
@@ -32,7 +28,7 @@ namespace Kolokvijum1
                 await LogAsync(job.Id, status, "-1");
             };
         }
-
+        // Upis u log fajl 
         private Task LogAsync(Guid jobId, string status, string result)
         {
             return Task.Run(() =>

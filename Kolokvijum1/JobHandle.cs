@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 namespace Kolokvijum1
 {
     // Predstavlja rezultat izvrsavanja posla.
-    // Pozivalac dobija JobHandle iz Submit() i moze da await-uje Result.
     public class JobHandle
     {
+        // Vraca povratnu vrednost posla kada se posao zavrsi (COMPLETED) ili baci exception na abort
         private readonly TaskCompletionSource<int> _tcs;
-
+        // Polja
         public Guid Id { get; }
         public Task<int> Result => _tcs.Task;
 
@@ -18,16 +18,14 @@ namespace Kolokvijum1
             _tcs = new TaskCompletionSource<int>(TaskCreationOptions.RunContinuationsAsynchronously);
         }
 
-        // Worker thread poziva ovo kada posao uspesno zavrsi
         public bool Complete(int result) => _tcs.TrySetResult(result);
 
-        // Worker thread poziva ovo kada se posao ABORT-uje (3 puta failovao)
         public bool Fail(Exception ex) => _tcs.TrySetException(ex);
 
         public override string ToString() => $"JobHandle(Id={Id})";
     }
 
-    // Custom exception koji se baca kada posao ABORT-uje nakon 3 pokusaja
+    //  exception koji se baca kada posao ABORT-uje nakon 3 pokusaja
     public class JobAbortedException : Exception
     {
         public Guid JobId { get; }
