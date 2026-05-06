@@ -11,6 +11,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '4.8.x'
+
     - name: Restore
       run: dotnet restore Kolokvijum1/Kolokvijum1.sln
 
