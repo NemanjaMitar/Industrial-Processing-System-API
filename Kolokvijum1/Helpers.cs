@@ -1,8 +1,9 @@
 using System;
 
+
+// Samo helperi za jobtype i pri parsiranju xmla
 namespace Kolokvijum1
 {
-    // Enum tipova posla — prema specifikaciji ("dodati enum")
     public enum JOBTYPE
     {
         PRIME,

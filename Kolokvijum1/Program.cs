@@ -8,7 +8,7 @@ namespace Kolokvijum1
         static void Main(string[] args)
         {
             Console.WriteLine("=========================================================");
-            Console.WriteLine("  Industrial Processing System — Kolokvijum 1 demo");
+            Console.WriteLine("  Industrial Processing System — Simulacija");
             Console.WriteLine("=========================================================");
 
             try

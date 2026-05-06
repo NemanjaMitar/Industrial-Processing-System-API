@@ -13,8 +13,8 @@ namespace Kolokvijum1
     {
         public Guid JobId { get; set; }
         public JOBTYPE Type { get; set; }
-        public bool Success { get; set; }      // true ako je COMPLETED, false ako je ABORT
-        public double DurationMs { get; set; } // vreme izvrsavanja u milisekundama
+        public bool Success { get; set; }      
+        public double DurationMs { get; set; } 
         public DateTime FinishedAt { get; set; }
     }
 
@@ -34,12 +34,12 @@ namespace Kolokvijum1
             _folder = folder;
             Directory.CreateDirectory(_folder);
 
-            // Default: svaki minut. Moguce je za demo postaviti krace vreme.
+            // Default: svaki minut
             var period = interval ?? TimeSpan.FromMinutes(1);
             _timer = new Timer(_ => GenerateReport(), null, period, period);
         }
 
-        // Worker thread (iz ProcessingSystem) prijavljuje izvrsene poslove
+        // Worker thread prijavljuje izvrsene poslove
         public void Record(ExecutionRecord record)
         {
             lock (_recordsLock)
@@ -82,8 +82,6 @@ namespace Kolokvijum1
                 .Select(g => new { Type = g.Key, Count = g.Count() })
                 .OrderBy(x => x.Type)
                 .ToList();
-
-            // ====== Pravljenje XML strukture ======
 
             var doc = new XDocument(
                 new XElement("Report",
