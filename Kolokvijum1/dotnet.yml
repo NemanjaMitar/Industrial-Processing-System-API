@@ -1,0 +1,21 @@
+name: .NET CI
+
+on:
+  push:
+    branches: [ "**" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Restore
+      run: dotnet restore Kolokvijum1/Kolokvijum1.sln
+
+    - name: Build
+      run: dotnet build Kolokvijum1/Kolokvijum1.sln --no-restore
+
+    - name: Test
+      run: dotnet test Kolokvijum1.Tests/Kolokvijum1.Tests.csproj --collect:"XPlat Code Coverage"

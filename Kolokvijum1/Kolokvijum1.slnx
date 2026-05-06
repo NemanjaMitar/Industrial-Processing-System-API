@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../Kolokvijum1.Tests/Kolokvijum1.Tests.csproj" Id="3a7ccf06-7030-49ea-9f24-6de5920c6a0a" />
+  <Project Path="Kolokvijum1.csproj" Id="37d7ae5f-734b-4c99-86ea-06c1899e8217" />
+</Solution>
