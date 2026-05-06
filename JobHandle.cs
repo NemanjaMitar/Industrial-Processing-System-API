@@ -1,35 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System;
 using System.Threading.Tasks;
 
 namespace Kolokvijum1
 {
+    // Predstavlja rezultat izvrsavanja posla.
+    // Pozivalac dobija JobHandle iz Submit() i moze da await-uje Result.
     public class JobHandle
     {
         private readonly TaskCompletionSource<int> _tcs;
-        // Polja klase 
-        public Guid Id { get; set; }
+
+        public Guid Id { get; }
         public Task<int> Result => _tcs.Task;
 
-        // Konstruktor klase
-        public JobHandle()
+        public JobHandle(Guid jobId)
         {
-            Id = Guid.NewGuid();
+            Id = jobId;
             _tcs = new TaskCompletionSource<int>(TaskCreationOptions.RunContinuationsAsynchronously);
         }
 
-        public bool Complete(int result )
-        {
-            return _tcs.TrySetResult(result);
-        }
+        // Worker thread poziva ovo kada posao uspesno zavrsi
+        public bool Complete(int result) => _tcs.TrySetResult(result);
 
+        // Worker thread poziva ovo kada se posao ABORT-uje (3 puta failovao)
+        public bool Fail(Exception ex) => _tcs.TrySetException(ex);
 
-        //Ispis
-        public override string ToString()
+        public override string ToString() => $"JobHandle(Id={Id})";
+    }
+
+    // Custom exception koji se baca kada posao ABORT-uje nakon 3 pokusaja
+    public class JobAbortedException : Exception
+    {
+        public Guid JobId { get; }
+        public JobAbortedException(Guid jobId, string message) : base(message)
         {
-            return "JobHandle ID: " + Id.ToString();
+            JobId = jobId;
         }
     }
 }

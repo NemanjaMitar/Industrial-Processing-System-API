@@ -1,31 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace Kolokvijum1
 {
     public class Job
     {
-        // Polja klase Job
+        // Polja klase Job — prema specifikaciji
+        public Guid Id { get; set; }
         public JOBTYPE Type { get; set; }
         public string Payload { get; set; }
-        public Guid Id { get; set; }
-        public int Priority { get; set; }
+        public int Priority { get; set; }   // manji broj => visi prioritet
 
-        // Konstruktor klase 
+        // Vreme kada je posao predat sistemu (za potrebe izvestaja)
+        public DateTime SubmittedAt { get; set; }
+
         public Job(JOBTYPE type = JOBTYPE.PRIME, string payload = "", int priority = 0)
         {
+            Id = Guid.NewGuid();
             Type = type;
             Payload = payload;
-            Id = Guid.NewGuid();
             Priority = priority;
+            SubmittedAt = DateTime.Now;
         }
-        // Ispis
+
         public override string ToString()
         {
-            return Helpers.ConvertJobTypeToString(Type) + ": " + Payload;
+            return $"{Helpers.ConvertJobTypeToString(Type)} (Priority={Priority}, Payload={Payload})";
         }
     }
 }
