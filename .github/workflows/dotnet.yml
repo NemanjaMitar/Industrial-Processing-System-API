@@ -12,10 +12,10 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Restore
-      run: dotnet restore Kolokvijum1/Kolokvijum1.sln
+      run: dotnet restore Kolokvijum1/Kolokvijum1.slnx
 
     - name: Build
-      run: dotnet build Kolokvijum1/Kolokvijum1.sln --no-restore
+      run: dotnet build Kolokvijum1/Kolokvijum1.slnx --no-restore
 
     - name: Test
       run: dotnet test Kolokvijum1.Tests/Kolokvijum1.Tests.csproj --collect:"XPlat Code Coverage"
